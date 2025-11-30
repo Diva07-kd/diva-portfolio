@@ -10,7 +10,7 @@ const cyberSkills = [
   { icon: "🛡️", name: "Nikto" },
   { icon: "⚙️", name: "OWASP ZAP" },
   { icon: "🧬", name: "sqlmap" },
-  { icon: "📈", name: "Splunk (SIEM)" },
+  { icon: "📈", name: "Splunk" },
   { icon: "🌪️", name: "WFuzz" },
   { icon: "🧭", name: "Gobuster" },
   { icon: "🔍", name: "Searchsploit" },
