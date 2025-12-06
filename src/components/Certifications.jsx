@@ -1,4 +1,11 @@
+import React from "react";
 import SectionTitle from "./SectionTitle";
+
+/*
+  Certifications.jsx
+  - Add /public/skillfront-certificate.pdf to public folder
+  - This component maps through certs and renders cards with 'View Credential'
+*/
 
 const certs = [
   {
@@ -24,12 +31,19 @@ const certs = [
   {
     title: "AWS Security – Encryption Fundamentals",
     provider: "AWS Training & Certification",
-    link: "/AWS Security – Encryption.pdf", // keep this filename in /public
+    link: "/AWS Security – Encryption.pdf",
   },
   {
     title: "Job Roles in the Cloud",
     provider: "AWS Training & Certification",
-    link: "/aws cloud certificate.pdf", // keep this filename in /public
+    link: "/aws cloud certificate.pdf",
+  },
+
+  // <-- NEW certificate entry (SkillFront)
+  {
+    title: "SkillFront — [SkillFront Certificate]",
+    provider: "SkillFront",
+    link: "/skillfront-certificate.pdf", // ensure this file is in /public
   },
 ];
 
@@ -40,33 +54,51 @@ function Certifications() {
         id="certs"
         label="Certifications"
         title="Verified Learning"
-        subtitle="Industry-recognised certificates that validate my cybersecurity and cloud knowledge."
+        subtitle="Industry‑recognised certificates that validate my cybersecurity and cloud knowledge."
       />
 
       <div className="section-inner">
         <div className="certs-grid">
           {certs.map((c) => (
-            <div key={c.title} className="card card-padded">
-              <p style={{ fontWeight: 600, marginBottom: "0.2rem" }}>{c.title}</p>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "0.8rem" }}>
-                {c.provider}
-              </p>
-              <a
-                href={c.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-                style={{ fontSize: "0.8rem", padding: "0.4rem 0.9rem" }}
-              >
-                View Credential
-              </a>
+            <div key={c.title} className="card card-padded" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <div>
+                <p style={{ fontWeight: 700, marginBottom: "0.2rem" }}>{c.title}</p>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.86rem", marginBottom: "0.8rem" }}>
+                  {c.provider}
+                </p>
+              </div>
+
+              <div style={{ marginTop: "0.6rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                <a
+                  href={c.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                  style={{ fontSize: "0.85rem", padding: "0.45rem 0.95rem" }}
+                >
+                  View Credential
+                </a>
+
+                {/* Display a small download link for local PDF certs */}
+                {c.link.startsWith("/") && (
+                  <a
+                    href={c.link}
+                    download
+                    className="btn-outline"
+                    style={{ fontSize: "0.85rem", padding: "0.45rem 0.95rem" }}
+                    title="Download certificate"
+                  >
+                    Download
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
 
         <div
           className="card card-padded"
-          style={{ marginTop: "2rem", background: "linear-gradient(135deg,#e0f2fe,#dcfce7)" }}
+          style={{ marginTop: "1.8rem", background: "linear-gradient(135deg,#e0f2fe,#dcfce7)" }}
         >
           <p style={{ fontWeight: 600, marginBottom: "0.4rem" }}>Professional Summary</p>
           <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
