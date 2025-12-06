@@ -46,7 +46,7 @@ const projects = [
 
 function Projects() {
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section" data-aos="fade-up" data-aos-duration="800">
       <SectionTitle
         label="Projects"
         title="Hands-on Security Work"
@@ -55,8 +55,8 @@ function Projects() {
 
       <div className="section-inner">
         <div className="projects-grid">
-          {projects.map((p) => (
-            <div key={p.title} className="card">
+          {projects.map((p, i) => (
+            <div key={p.title} className="card" data-aos="fade-up" data-aos-delay={i * 80} data-aos-duration="700">
               <div
                 className="project-card-image"
                 style={{
@@ -67,13 +67,7 @@ function Projects() {
                 <h3 className="project-title">{p.title}</h3>
                 <p className="project-stack">{p.stack}</p>
                 <p className="project-desc">{p.desc}</p>
-                <p
-                  style={{
-                    fontSize: "0.8rem",
-                    color: "var(--text-muted)",
-                    marginTop: "0.5rem",
-                  }}
-                >
+                <p style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "0.5rem" }}>
                   <strong>Tools:</strong> {p.tools}
                 </p>
                 <div className="project-tags">
@@ -84,16 +78,7 @@ function Projects() {
                   ))}
                 </div>
                 <div style={{ marginTop: "0.9rem" }}>
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-outline"
-                    style={{
-                      fontSize: "0.8rem",
-                      padding: "0.45rem 0.9rem",
-                    }}
-                  >
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: "0.8rem", padding: "0.45rem 0.9rem" }}>
                     View on GitHub
                   </a>
                 </div>

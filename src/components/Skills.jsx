@@ -32,7 +32,7 @@ const offensiveSkills = [
 
 function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section" data-aos="fade-up" data-aos-duration="800">
       <SectionTitle
         label="Skills"
         title="Technical & Security Skills"
@@ -42,7 +42,7 @@ function Skills() {
       <div className="section-inner">
         <div className="skills-columns">
           {/* CYBERSECURITY TOOLS */}
-          <div className="card card-padded">
+          <div className="card card-padded" data-aos="fade-right" data-aos-duration="700">
             <p className="skill-block-title">🛡️ Cybersecurity Tools</p>
             <div className="soft-skills-row">
               {cyberSkills.map((s) => (
@@ -54,7 +54,7 @@ function Skills() {
           </div>
 
           {/* PROGRAMMING */}
-          <div className="card card-padded">
+          <div className="card card-padded" data-aos="fade-left" data-aos-duration="700">
             <p className="skill-block-title">💻 Programming</p>
             <div className="soft-skills-row">
               {programmingSkills.map((s) => (
@@ -70,7 +70,7 @@ function Skills() {
           </div>
 
           {/* SOC / BLUE TEAM */}
-          <div className="card card-padded">
+          <div className="card card-padded" data-aos="fade-up" data-aos-duration="700">
             <p className="skill-block-title">📟 SOC &amp; Blue-Team Concepts</p>
             <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
               Log analysis, SIEM workflows (Splunk), alert triage, incident response basics and
@@ -79,7 +79,7 @@ function Skills() {
           </div>
 
           {/* OFFENSIVE / PENTESTING */}
-          <div className="card card-padded">
+          <div className="card card-padded" data-aos="fade-up" data-aos-duration="700">
             <p className="skill-block-title">🗡️ Offensive Security &amp; Pentesting</p>
             <ul
               style={{

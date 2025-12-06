@@ -2,7 +2,7 @@ import SectionTitle from "./SectionTitle";
 
 function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" data-aos="fade-up" data-aos-duration="800">
       <SectionTitle
         label="About Me"
         title="Passionate About Cybersecurity"
@@ -11,7 +11,7 @@ function About() {
 
       <div className="section-inner">
         <div className="about-grid">
-          <div className="card about-image">
+          <div className="card about-image" data-aos="fade-right" data-aos-duration="700">
             <img
               src="/hero-soc-cloud.jpg"
               alt="Security Operations Center"
@@ -19,12 +19,12 @@ function About() {
             />
           </div>
 
-          <div>
+          <div data-aos="fade-left" data-aos-duration="700">
             <p className="about-text">
               Dedicated and analytical B.E. Computer and Communication Engineering student with a
               strong interest in cybersecurity. I have solid knowledge of networking, Linux and
               security fundamentals, with hands-on skills in penetration testing and SOC analysis.
-              I&apos;m committed to continuous learning and applying offensive security techniques to
+              I'm committed to continuous learning and applying offensive security techniques to
               identify, exploit and secure vulnerabilities, with a clear focus on building a career
               in ethical hacking and cybersecurity.
             </p>

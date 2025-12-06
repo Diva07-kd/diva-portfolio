@@ -34,18 +34,18 @@ const certs = [
   {
     title: "ISO/IEC 27001:2022 – Information Security Associate",
     provider: "SkillFront",
-    link: "/skillfront-certificate.pdf", // make sure name matches your public folder
+    link: "/skillfront-certificate.pdf",
   },
   {
     title: "CRPO – Certified Ransomware Protection Officer",
     provider: "EU Cyber Academy",
-    link: "/CRPO-Certified-Ransomware-Protection-Officer.pdf", // NEW CERTIFICATE
+    link: "/CRPO-Certified-Ransomware-Protection-Officer.pdf",
   },
 ];
 
 function Certifications() {
   return (
-    <section className="section">
+    <section id="certs" className="section" data-aos="fade-up" data-aos-duration="800">
       <SectionTitle
         id="certs"
         label="Certifications"
@@ -55,8 +55,14 @@ function Certifications() {
 
       <div className="section-inner">
         <div className="certs-grid">
-          {certs.map((c) => (
-            <div key={c.title} className="card card-padded">
+          {certs.map((c, i) => (
+            <div
+              key={c.title}
+              className="card card-padded"
+              data-aos="fade-up"
+              data-aos-delay={i * 80}
+              data-aos-duration="700"
+            >
               <p style={{ fontWeight: 600, marginBottom: "0.2rem" }}>{c.title}</p>
               <p
                 style={{
@@ -68,15 +74,24 @@ function Certifications() {
                 {c.provider}
               </p>
 
-              <a
-                href={c.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-                style={{ fontSize: "0.8rem", padding: "0.4rem 0.9rem" }}
-              >
-                View Credential
-              </a>
+              <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                <a
+                  href={c.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                  style={{ fontSize: "0.8rem", padding: "0.4rem 0.9rem" }}
+                >
+                  View Credential
+                </a>
+
+                {/* show download button if it's a local file (starts with /) */}
+                {c.link.startsWith("/") && (
+                  <a href={c.link} download className="btn-outline" style={{ fontSize: "0.8rem", padding: "0.4rem 0.9rem" }}>
+                    Download
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -87,6 +102,8 @@ function Certifications() {
             marginTop: "2rem",
             background: "linear-gradient(135deg,#e0f2fe,#dcfce7)",
           }}
+          data-aos="fade-up"
+          data-aos-delay={certs.length * 80}
         >
           <p style={{ fontWeight: 600, marginBottom: "0.4rem" }}>
             Professional Summary

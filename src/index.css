@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
-
 :root {
   --bg: #ffffff;
   --bg-soft: #f8fafc;
@@ -632,3 +631,83 @@ main {
   transform: translateY(0);
   opacity: 1;
 }
+/* AOS helpers & alert styles */
+[data-aos] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Alerts: contact */
+.alert-success {
+  background: #ecfdf5;
+  border: 1px solid #34d399;
+  color: #065f46;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  display: inline-block;
+}
+.alert-error {
+  background: #fff1f2;
+  border: 1px solid #fb7185;
+  color: #9f1239;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  display: inline-block;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f8fafc;
+  --hero-grad-from: #e0f2fe;
+  --hero-grad-to: #fee2e2;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --accent: #dc2626;
+  --accent-soft: #fee2e2;
+  --border: #e5e7eb;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* ... keep all your previous styles unchanged up to the responsive block ... */
+/* (I assume your existing content above remains — do not remove it). */
+
+/* ===== Alerts for contact form (kept single copy) ===== */
+.alert-success {
+  background: #ecfdf5;
+  border: 1px solid #34d399;
+  color: #065f46;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  display: inline-block;
+}
+
+.alert-error {
+  background: #fff1f2;
+  border: 1px solid #fb7185;
+  color: #9f1239;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  display: inline-block;
+}
+
+/* small fade-up helper class (for optional CSS-only animations) */
+.fade-up {
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.fade-up.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* AOS helpers (performance hints) */
+[data-aos] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+

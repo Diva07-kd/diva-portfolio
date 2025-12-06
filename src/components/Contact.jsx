@@ -36,7 +36,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section" data-aos="fade-up" data-aos-duration="800">
       <div className="section-inner">
         <p className="section-label">Contact</p>
         <h2 className="section-heading heading-serif">Get In Touch</h2>
@@ -46,7 +46,7 @@ export default function Contact() {
 
         <div className="contact-grid">
           {/* LEFT – info card */}
-          <div className="card card-padded" style={{ boxShadow: "0 18px 45px rgba(15,23,42,0.12)" }}>
+          <div className="card card-padded" style={{ boxShadow: "0 18px 45px rgba(15,23,42,0.12)" }} data-aos="fade-right" data-aos-duration="700">
             <h3 style={{ marginTop: 0, marginBottom: "1rem" }}>Contact Information</h3>
 
             <p className="contact-label">Email</p>
@@ -75,7 +75,7 @@ export default function Contact() {
           </div>
 
           {/* RIGHT – form card */}
-          <div className="card card-padded">
+          <div className="card card-padded" data-aos="fade-left" data-aos-duration="700">
             <h3 style={{ marginTop: 0, marginBottom: "1rem" }}>Send Me a Message</h3>
 
             <form onSubmit={handleSubmit} className="contact-form-grid" aria-describedby="contact-status">
