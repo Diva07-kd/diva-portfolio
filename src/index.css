@@ -710,4 +710,103 @@ main {
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
+/* Contact info card — icons + profiles */
+.contact-info-card .contact-info-row {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+}
 
+.contact-info-card .icon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.06);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-info-card .contact-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.18rem;
+}
+
+.contact-info-card .contact-value {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.contact-info-card .profile-links {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.contact-info-card .profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid rgba(148,163,184,0.12);
+  box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+  color: var(--accent);
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.contact-info-card .profile-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15,23,42,0.12);
+}
+
+.phone-number {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* small rating area next to phone */
+.phone-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: 0.6rem;
+  font-size: 0.88rem;
+  color: #ef4444; /* red accent */
+}
+
+.phone-rating .stars {
+  letter-spacing: 0.02em;
+  color: #f59e0b; /* gold */
+  font-size: 0.95rem;
+}
+
+.phone-rating .rating-text {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-left: 0.2rem;
+}
+
+/* mobile responsiveness tweak */
+@media (max-width: 768px) {
+  .contact-info-card .contact-info-row {
+    gap: 0.6rem;
+  }
+  .contact-info-card .profile-link {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.86rem;
+  }
+}
