@@ -41,7 +41,7 @@ const certs = [
 
   // <-- NEW certificate entry (SkillFront)
   {
-    title: "SkillFront — [SkillFront Certificate]",
+    title: "ISO/IEC 27001:2022 – Information Security Associate™",
     provider: "SkillFront",
     link: "/skillfront-certificate.pdf", // ensure this file is in /public
   },
