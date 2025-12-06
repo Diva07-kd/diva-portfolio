@@ -1,25 +1,12 @@
 import { useState } from "react";
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+const FORMSPREE_URL = "https://formspree.io/f/mkgdgeww"; // your existing URL
 
-  const [status, setStatus] = useState({
-    submitting: false,
-    success: null,
-    error: null,
-  });
+export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState({ submitting: false, success: null, error: null });
 
-  // 🔴 IMPORTANT: replace this with your own Formspree form URL
-  const FORMSPREE_URL = "https://formspree.io/f/mkgdgeww";
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const handleChange = (e) => setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,37 +15,23 @@ function Contact() {
     try {
       const res = await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
       });
 
       if (res.ok) {
-        setStatus({
-          submitting: false,
-          success: "Thanks for reaching out! I’ll reply soon.",
-          error: null,
-        });
+        setStatus({ submitting: false, success: "Message sent successfully! ✅", error: null });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus({
-          submitting: false,
-          success: null,
-          error: "Something went wrong. Please try again.",
-        });
+        setStatus({ submitting: false, success: null, error: "Something went wrong. Please try again." });
       }
     } catch (err) {
-      setStatus({
-        submitting: false,
-        success: null,
-        error: "Network error. Please try again.",
-      });
+      // fallback to mailto if network error
+      const subject = encodeURIComponent(`Message from ${formData.name || "Portfolio Visitor"}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
+      window.location.href = `mailto:k.divakar1626@gmail.com?subject=${subject}&body=${body}`;
+      setStatus({ submitting: false, success: "Opened your mail client as a fallback.", error: null });
+      setFormData({ name: "", email: "", message: "" });
     }
   };
 
@@ -89,36 +62,15 @@ function Contact() {
 
             <p className="contact-label">Profiles</p>
             <p className="contact-value">
-              <a
-                href="https://www.linkedin.com/in/divakark2006"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent)", display: "block" }}
-              >
+              <a href="https://www.linkedin.com/in/divakark2006" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", display: "block" }}>
                 LinkedIn
               </a>
-              <a
-                href="https://github.com/Diva07-kd"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent)", display: "block" }}
-              >
+              <a href="https://github.com/Diva07-kd" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", display: "block" }}>
                 GitHub
               </a>
-              <a
-                href="https://tryhackme.com/p/DIVAKARk"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent)", display: "block" }}
-              >
+              <a href="https://tryhackme.com/p/DIVAKARk" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", display: "block" }}>
                 TryHackMe
               </a>
-            </p>
-
-            <p className="contact-label">Let&apos;s Connect</p>
-            <p className="contact-value" style={{ maxWidth: "22rem" }}>
-              Whether it&apos;s SOC work, offensive research or security automation ideas, I&apos;d
-              love to hear from you through any of these channels.
             </p>
           </div>
 
@@ -126,65 +78,32 @@ function Contact() {
           <div className="card card-padded">
             <h3 style={{ marginTop: 0, marginBottom: "1rem" }}>Send Me a Message</h3>
 
-            <form onSubmit={handleSubmit} className="contact-form-grid">
+            <form onSubmit={handleSubmit} className="contact-form-grid" aria-describedby="contact-status">
               <div>
                 <p className="contact-label">Your Name</p>
-                <input
-                  className="contact-input"
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
+                <input className="contact-input" type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
               </div>
 
               <div>
                 <p className="contact-label">Your Email</p>
-                <input
-                  className="contact-input"
-                  type="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <input className="contact-input" type="email" name="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} required />
               </div>
 
               <div>
                 <p className="contact-label">Your Message</p>
-                <textarea
-                  className="contact-textarea"
-                  name="message"
-                  placeholder="Tell me about your project or opportunity..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
+                <textarea className="contact-textarea" name="message" placeholder="Tell me about your project or opportunity..." value={formData.message} onChange={handleChange} required />
               </div>
 
               <div style={{ marginTop: "0.5rem" }}>
-                <button
-                  type="submit"
-                  className="btn-primary"
-                  disabled={status.submitting}
-                >
+                <button type="submit" className="btn-primary" disabled={status.submitting}>
                   {status.submitting ? "Sending..." : "Send Message"}
                 </button>
               </div>
 
-              {status.success && (
-                <p style={{ color: "green", fontSize: "0.9rem", marginTop: "0.4rem" }}>
-                  {status.success}
-                </p>
-              )}
-              {status.error && (
-                <p style={{ color: "red", fontSize: "0.9rem", marginTop: "0.4rem" }}>
-                  {status.error}
-                </p>
-              )}
+              <div id="contact-status" aria-live="polite" style={{ marginTop: "0.5rem" }}>
+                {status.success && <div role="status" className="alert-success">{status.success}</div>}
+                {status.error && <div role="alert" className="alert-error">{status.error}</div>}
+              </div>
             </form>
           </div>
         </div>
@@ -192,5 +111,3 @@ function Contact() {
     </section>
   );
 }
-
-export default Contact;
