@@ -26,6 +26,7 @@ const certs = [
     provider: "AWS Training & Certification",
     link: "/AWS Security – Encryption.pdf",
   },
+  
   {
     title: "Job Roles in the Cloud",
     provider: "AWS Training & Certification",
@@ -41,7 +42,13 @@ const certs = [
     provider: "EU Cyber Academy",
     link: "/CRPO-Certified-Ransomware-Protection-Officer.pdf",
   },
+  {
+    title: "GRC – Governance, Risk & Compliance",   // change title if needed
+    provider: "SIMPLY CYBER ACADEMY",                 // pdf la irukkura institute name
+    link: "/GRC_CERTIFICATE.pdf",                   // public folder file name
+  },
 ];
+
 
 function Certifications() {
   return (
