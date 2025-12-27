@@ -30,7 +30,7 @@ const projects = [
       "Chutney, Tor Expert Bundle, Python, Pandas, Scikit-Learn, XGBoost, JSON, Matplotlib",
     image: "project-tor.avif",
     tags: ["Anonymity", "Traffic Analysis", "Forensics"],
-    link: "https://github.com/Diva07-kd/Hackathon-project-Tor-deanonymization-forensic-analysis-system.git",
+    link: "https://github.com/Diva07-kd/TOR-GUARD_NODE-PREDICTOR.git",
   },
   {
     title: "Network Packet Sniffer & Visualizer",
