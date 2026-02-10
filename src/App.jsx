@@ -6,10 +6,12 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
+import MatrixBackground from "./components/MatrixBackground";
 
 function App() {
   return (
-    <div>
+    <>
+      <MatrixBackground />
       <Navbar />
       <main>
         <Hero />
@@ -20,7 +22,7 @@ function App() {
         <Certifications />
         <Contact />
       </main>
-    </div>
+    </>
   );
 }
 

@@ -56,13 +56,7 @@ function Projects() {
       <div className="section-inner">
         <div className="projects-grid">
           {projects.map((p, i) => (
-            <div key={p.title} className="card" data-aos="fade-up" data-aos-delay={i * 80} data-aos-duration="700">
-              <div
-                className="project-card-image"
-                style={{
-                  backgroundImage: `url(/${p.image})`,
-                }}
-              />
+            <div key={p.title} className="card project-card" data-aos="fade-up" data-aos-delay={i * 80} data-aos-duration="700">
               <div className="project-card-body">
                 <h3 className="project-title">{p.title}</h3>
                 <p className="project-stack">{p.stack}</p>

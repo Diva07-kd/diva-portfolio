@@ -10,9 +10,7 @@ function Navbar() {
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Resume</a>
-          <a href="#contact" className="navbar-link-active">
-            Contact
-          </a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>

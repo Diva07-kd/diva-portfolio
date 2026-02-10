@@ -70,32 +70,23 @@ function Certifications() {
               data-aos-delay={i * 80}
               data-aos-duration="700"
             >
-              <p style={{ fontWeight: 600, marginBottom: "0.2rem" }}>{c.title}</p>
-              <p
-                style={{
-                  color: "var(--text-muted)",
-                  fontSize: "0.85rem",
-                  marginBottom: "0.8rem",
-                }}
-              >
-                {c.provider}
-              </p>
+              <p className="cert-title">{c.title}</p>
+              <p className="cert-provider">{c.provider}</p>
 
-              <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+              <div className="cert-actions">
                 <a
                   href={c.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline"
-                  style={{ fontSize: "0.8rem", padding: "0.4rem 0.9rem" }}
+                  className="btn-outline cert-action"
                 >
-                  View Credential
+                  View Certificate
                 </a>
 
                 {/* show download button if it's a local file (starts with /) */}
                 {c.link.startsWith("/") && (
-                  <a href={c.link} download className="btn-outline" style={{ fontSize: "0.8rem", padding: "0.4rem 0.9rem" }}>
-                    Download
+                  <a href={c.link} download className="btn-outline cert-action">
+                    Save PDF
                   </a>
                 )}
               </div>
@@ -107,7 +98,7 @@ function Certifications() {
           className="card card-padded"
           style={{
             marginTop: "2rem",
-            background: "linear-gradient(135deg,#e0f2fe,#dcfce7)",
+            background: "linear-gradient(135deg, rgba(6, 18, 12, 0.95), rgba(10, 26, 18, 0.95))",
           }}
           data-aos="fade-up"
           data-aos-delay={certs.length * 80}
