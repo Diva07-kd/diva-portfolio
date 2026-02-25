@@ -7,19 +7,23 @@ export default function MatrixBackground() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const setSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    setSize();
 
     const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
+    const fontSize = 13;
+
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
 
     function draw() {
-      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillStyle = "rgba(0,0,0,0.07)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#22c55e";
+      ctx.fillStyle = "#20ff6b";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -33,9 +37,21 @@ export default function MatrixBackground() {
       }
     }
 
-    const interval = setInterval(draw, 33);
-    return () => clearInterval(interval);
+    const interval = setInterval(draw, 35);
+
+    const onResize = () => {
+      setSize();
+      columns = Math.floor(canvas.width / fontSize);
+      drops = Array(columns).fill(1);
+    };
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
-  return <canvas className="matrix-bg" ref={canvasRef} />;
+  return <canvas className="matrix-bg" ref={canvasRef} aria-hidden="true" />;
 }

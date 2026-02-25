@@ -1,8 +1,8 @@
-function SectionTitle({ id, label, title, subtitle }) {
+function SectionTitle({ label, title, subtitle }) {
   return (
-    <div id={id} className="section-inner">
+    <div className="section-header">
       <p className="section-label">{label}</p>
-      <h2 className="section-heading heading-serif">{title}</h2>
+      <h2 className="section-heading">{title}</h2>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
     </div>
   );
